@@ -1,0 +1,93 @@
+			* {
+				margin: 0;
+				padding: 0;
+				border: none;
+			}
+			ul, li {
+				list-style: none;
+			}
+			
+			#box {
+				width: 600px;
+				height: 300px;
+				margin: 0px auto;
+				/*border: 10px solid red;*/
+				position: relative;
+				overflow: hidden; 
+			}
+			
+			#list {
+			    /*   width: 4200px; 两种方法，1是在这把总宽度写出来；2，在js中把总宽度写出来  */
+				height: 300px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				
+			}
+			
+			#list li {
+				width: 600px;
+				height: 300px;
+				float: left;
+			}
+			#list img {
+				width: 600px;
+				height: 300px;
+			}			
+			
+			#list2 {
+				width: 70px;
+				height: 15px;
+				position: absolute;
+				right: 30px;
+				bottom: 30px;
+			}
+			#list2 li {
+				width: 13px;
+				height: 13px;
+				border: 1px solid black;
+				background: yellow;
+				float: left;
+				line-height: 13px;
+				text-align: center;
+				margin-left: 5px;
+				cursor: pointer;
+			}
+			
+			#list2 .active {
+				background: red;
+			}
+			#box2{
+				margin: 0 auto;
+				border:  1px solid red;
+				width: 600px;
+				height: 140px;
+				position: relative;
+			}
+			#box2 a{
+				display: inline-block;
+				  
+			}
+			.btn_left{
+				 width: 60px;
+				 height: 60px;
+				 line-height: 60px;
+				 border-radius: 50%;
+				 background: yellow;
+				 position: absolute;
+				 left: 60px;
+				 top: 30%;
+				 text-align: center;
+			}
+			.btn_right{
+				 width: 60px;
+				 height: 60px;
+				 line-height: 60px;
+				 border-radius: 50%;
+				 background: yellow;
+				 position: absolute;
+				 right: 60px;
+				 top: 30%;
+				 text-align: center;
+			}
+	

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<!--<meta name="viewport" content="width=device-width;initial-scale=1,minimum-scale=0.5,maximum-scale=4">-->
+		<meta name="viewport" content="width=device-width"/>
+		<title>移动端大图点击事件开发</title>
+		<link rel="stylesheet" type="text/css" href="dist/swiper/css/swiper.min.css"/>
+		<style>
+		   *{padding: 0;margin:0;}
+			html,body{height:100%;}
+			/*弹窗外层盒子*/
+			   .wrap{display:flex;
+				       height:100%;
+				       border: 1px solid red;
+				       justify-content: center;
+				       align-items: center;
+				       position: relative;}
+	        /*第一个子集盒子*/			       
+			    .center_btn1{  width: 10rem;
+				         height: 10rem;
+				         border: 1px solid green;
+				         line-height: 10rem;
+				         text-align: center;
+				         display: none;
+				         z-index: 100;
+				         position: relative;}
+			/*第一个自己盒子按钮*/	         
+				.center_btn1 .delete_btn1{
+				 	    position: absolute;
+				 	    top: 0;
+				 	    right: 0;
+				 	    width: 2rem;
+				 	    height: 2rem;
+				 	    background-color:red;
+				 }
+			/*第二个盒子子集*/
+			    .center_lunbotu{ 
+			      	     width: 22rem;
+				         height: 22rem;
+				         border: 1px solid green;
+				         line-height: 10rem;
+				         text-align: center;
+				         display: none;
+				         z-index: 100;
+				         position: relative;}
+			/*第二个自己盒子按钮*/	         
+				 .center_lunbotu .delete_lunbotu{
+				 	    position: absolute;
+				 	    top: 0;
+				 	    right: 0;
+				 	    width: 2rem;
+				 	    height: 2rem;
+				 	    background-color:red ;
+				 	    z-index: 11;
+				 }
+				 
+		   .swiper-container{
+				    width: 22rem;
+				    height: 22rem;	
+				 }
+		    .swiper-slide img{
+		    	   width: 100%;
+		    	   height: 100%;
+		    }
+			/*主页面盒子布局*/	          
+			   .box{
+			   	   position: absolute;
+			   	   left: 6rem;
+			   	   top: 6rem;
+			   	   width: 50rem;
+			   	   height: 30rem;
+			   	   border: 1px solid blue;
+			   	   z-index: 1;
+			   	   background-image: url(img/100.jpg);
+			   	   background-size: 100% 100%;
+			   }
+			 /*absolute绝对定位，寻找最近父级中含有的absolute或relative,如果父级中不含有这两个属性，则相对与body进行定位*/
+			  .btn1{
+			   	    width:3rem ;
+			   	    height:3rem;
+			   	    border: 1px solid yellow;
+			   	    position: absolute;
+			   	    left: 5rem;
+			   	    top: 7rem;
+			   }
+			   .btn_lunbotu{
+			   	    width:3rem ;
+			   	    height:3rem;
+			   	    border: 1px solid yellow;
+			   	    position: absolute;
+			   	    left: 10rem;
+			   	    top: 14rem;
+			   }
+		</style>
+		<script src="dist/jquery/jquery.js"></script>
+		<script src="dist/zepto/zepto.min.js"></script>
+		<script src="dist/swiper/js/swiper.js"></script>
+		<!--点击显示，删除隐藏-->
+		<script>
+			 $(function(){
+			 	  console.log("aaa");			 	  
+			 	  $(".btn1").on("touchstart",function(){
+			 	  	    $(".center_btn1").css("display","block");
+			 	  	    $(".center_btn1 .delete_btn1").on("touchstart",function(){
+			 	  	    	   $(".center_btn1").css("display","none");
+			 	  	    })
+			 	  })
+			 	  console.log($(".btn1"))
+			 })
+		</script>
+		<!--点击显示轮播图-->
+		<script>
+			 $(function(){
+			 	  console.log("ccc");
+			 	  $(".btn_lunbotu").on("touchstart",function(){
+			 	  	   $(".center_lunbotu").css("display","block");
+			 	  	   $(".center_lunbotu .delete_lunbotu").on("touchstart",function(){
+			 	  	   	     $(".center_lunbotu").css("display","none")
+			 	  	   })
+			 	  })
+			 })
+		</script>
+		<!--swiper插件-->
+		<script>
+		  $(function(){
+		  	  var mySwiper = new Swiper ('.swiper-container', {
+			    direction: 'horizontal',
+			    loop: true,			    
+			    // 如果需要分页器
+//			    pagination: '.swiper-pagination',			    
+			    // 如果需要前进后退按钮
+			    nextButton: '.swiper-button-next',
+			    prevButton: '.swiper-button-prev',			    
+			    // 如果需要滚动条
+//			    scrollbar: '.swiper-scrollbar',
+			  }) 
+		  })
+			  
+		</script>
+	</head>
+	<body>
+		<!--大图主页面-->
+		<div class="box">		
+			 	<button class="btn1">按钮</button>
+			 	<button class="btn_lunbotu">点击</button>
+		</div>
+		<!--弹窗页面-->
+		<div class="wrap">
+			   <!--点击删除-->
+			    <div class="center_btn1">你好
+			         <div class="delete_btn1"></div>
+			    </div>
+			    <!--点击轮播-->
+			     <div class="center_lunbotu">
+			    
+			     		  <!--swiper插件-->
+				     	  <div class="swiper-container">
+							    <div class="swiper-wrapper">
+							        <div class="swiper-slide"><img src="img/yy_1.jpg"/></div>
+							        <div class="swiper-slide"><img src="img/yy_2.jpg"/></div>
+							        <div class="swiper-slide"><img src="img/yy_3.jpg"/></div>
+							        <div class="swiper-slide"><img src="img/yy_4.jpg"/></div>
+							        <div class="swiper-slide"><img src="img/yy_5.jpg"/></div>
+							    </div>
+							    <!-- 如果需要分页器 -->
+							    <!--<div class="swiper-pagination"></div>-->
+							    
+							    <!-- 如果需要导航按钮 -->
+							    <div class="swiper-button-prev"></div>
+							    <div class="swiper-button-next"></div>
+							    
+							    <!-- 如果需要滚动条 -->
+							    <!--<div class="swiper-scrollbar"></div>-->
+							</div>
+			   
+			     	
+			     	
+			     	
+			     	
+			         <div class="delete_lunbotu"></div>
+			    </div>
+		</div>
+	</body>
+</html>

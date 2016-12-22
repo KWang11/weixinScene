@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width;initial-scale=1,minimum-scale=0.5,maximum-scale=4" />
+		<title>宣传</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="css/lunbotu.css"/>-->
+		<style>
+		/*轮播*/
+		  * {
+				margin: 0;
+				padding: 0;
+				border: none;
+			}
+			ul, li {
+				list-style: none;
+			}
+			
+			#box {
+				width: 600px;
+				height: 300px;
+				/*margin: 0px auto;*/
+				/*border: 10px solid red;*/
+				position: relative;
+				overflow: hidden; 
+			}
+			
+			#list {
+			    /*   width: 4200px; 两种方法，1是在这把总宽度写出来；2，在js中把总宽度写出来  */
+				height: 300px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				
+			}
+			
+			#list li {
+				width: 600px;
+				height: 300px;
+				float: left;
+			}
+			#list img {
+				width: 600px;
+				height: 300px;
+			}			
+			
+			#list2 {
+				width: 70px;
+				height: 15px;
+				position: absolute;
+				right: 30px;
+				bottom: 30px;
+			}
+			#list2 li {
+				width: 13px;
+				height: 13px;
+				border: 1px solid black;
+				background: yellow;
+				float: left;
+				line-height: 13px;
+				text-align: center;
+				margin-left: 5px;
+				cursor: pointer;
+			}
+			
+			#list2 .active {
+				background: red;
+			}
+			#box2{
+				/*margin: 0 auto;*/
+				border:  1px solid red;
+				width: 600px;
+				height: 140px;
+				position: relative;
+			}
+			#box2 a{
+				display: inline-block;
+				  
+			}
+			.btn_left{
+				 width: 60px;
+				 height: 60px;
+				 line-height: 60px;
+				 border-radius: 50%;
+				 background: yellow;
+				 position: absolute;
+				 left: 60px;
+				 top: 30%;
+				 text-align: center;
+			}
+			.btn_right{
+				 width: 60px;
+				 height: 60px;
+				 line-height: 60px;
+				 border-radius: 50%;
+				 background: yellow;
+				 position: absolute;
+				 right: 60px;
+				 top: 30%;
+				 text-align: center;
+			}
+	
+		/*轮播*/
+			.lunbotu{
+				 /*width: 300px;
+				 height: 200px;*/
+				 background: green;
+			}
+			 .pic1_box{
+			 	position: relative;
+			 }
+			  .pic1_box .delete{
+			  	 position: absolute;
+			  	 top: 0;
+			  	 right: 0;
+			  	 width: 40px;
+			  	 height: 30px;
+			  	 line-height: 30px;
+			  	 text-align: center;
+			  	 background: red;
+			  }
+			  
+		</style>
+		<script src="js/jquery-1.12.0.js"></script>		
+		<script src="js/move.js"></script>
+		<script src="js/index.js"></script>
+		<!--<script src="js/lunbotu.js"></script>-->		
+		<!--轮播图js-->
+	
+		   <!--点击跳出图像-->
+		<script>
+			 jQuery(document).ready(function(){
+			 	  $(".dot").on("click",function(){
+//			 	  	     $(".dot").css("display","none");
+			 	  	     $(".pic1").css("display","block");
+			 	  	     $(".pic1_box .delete").click(function(){
+			 	  	     	  $(".pic1").css("display","none");  
+			 	  	     })
+			 	  })
+			 })
+		</script>
+		 <!--点击轮播图-->
+		<script>
+			 jQuery(document).ready(function(){
+			 	  $(".dot2").on("click",function(){
+//			 	  	     $(".dot2").css("display","none");
+			 	  	     $(".lunbotu").css("display","block");
+			 	  })
+			 })
+		</script>
+		
+	</head>
+	<body>
+		 <div class="box_H">
+		 	   <!--点击显示pic1-->
+		 	    <div class="dot"></div>	
+		 	    <!--videw-->
+		 	    <div class="videw">
+		 	    	  <video width="250px" height="250px" controls loop poster="img/g010.jpg">
+		 	    	  	<source src="myvideo.mp4" type="video/mp4"></source>
+		 	    	  	<!--<source src="myvideo.ogv" type="video/ogg"></source>
+		 	    	  	<source src="myvideo.webm" type="video/webm"></source>-->
+		 	    	  	<!--<object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf">
+		 	    	  		<param name="movie" value="myvideo.swf" />
+		 	    	  		<param name="flashvars" value="autostart=true&amp;file=myvideo.swf" />
+		 	    	  	</object>-->
+		 	    	  	当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
+		 	    	  </video>		 	    	  
+		 	    </div>	
+		 	    <!--自定义音频-->
+		 	    <audio class="audio" src="media/方大同 - 红豆 - 完整版.mp3" autoplay controls></audio>
+		 	    <!--点击按钮跳出轮播图-->
+		 	    <div class="dot2"></div>
+		 </div>
+		 
+	
+		 	   <div class="pic1" >
+				 	<div class="pic1_box">
+				 		  <img src="img/pic160.jpg"/>
+				 	      <div class="delete">关闭</div>
+				 	</div>
+		 	 
+			 </div>
+		 	
+
+		
+		 <!--轮播图-->
+		 <div class="lunbotu">
+		 	    <div class="lunbotu_box">
+		 		      
+		 		   
+		 	      <!--<div class="delete">关闭</div>-->
+		 	</div>
+		 	   
+		 </div>
+		
+		          
+		 		   
+		 
+	</body>
+</html>
