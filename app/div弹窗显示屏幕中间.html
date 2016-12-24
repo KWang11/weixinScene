@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{margin: 0;padding: 0;border: none;}
+		
+	        .box{width: 100%;height:1000px;border: 1px solid green;position: relative;}
+	        .btn{width: 45px;height: 30px;border: 1px solid yellow;}
+		    .divCenter{
+		    	 width: 100px;
+		    	 height: 100px;
+		    	 line-height: 100px;
+		    	 text-align: center;
+		    	 border: 1px solid red;
+		    	 display: none;	    
+		    }	   
+		</style>
+		<script src="js/jquery-1.12.0.js"></script>
+		<script>
+		/*div居中*/
+		    $(function(){
+		       /*添加点击事件*/
+		    	$(".btn").on("click",function(){
+		    		  funShowDivCenter(".divCenter");
+		    	})		    	
+		    	  //让指定的DIV始终显示在屏幕正中间
+			   function funShowDivCenter(div) {
+				      var top = ($(window).height() - $(div).height()) / 2;
+				      var left = ($(window).width() - $(div).width()) / 2;
+				      console.log(top);
+				      console.log(left);
+				      var scrollTop = $(document).scrollTop();
+				      var scrollLeft = $(document).scrollLeft();
+				      console.log(scrollTop);
+				      console.log(scrollLeft);
+				      /*也可用position:"absolute"*/
+				      $(div).css({ position: 'fixed', 'top': top + scrollTop, left: left + scrollLeft }).show();
+				  }
+		    	
+		    })			   
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			  <button class="btn">按钮</button>  
+		</div>
+		<div class="divCenter">1</div>
+	</body>
+</html>

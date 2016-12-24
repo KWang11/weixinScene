@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>延时加载</title>
+		<style>
+			*{padding: 0;margin: 0;border: none;}
+			ul li{list-style: none;}
+		</style>
+		<script src="js/jquery-1.12.0.js"></script>
+		<script>
+			$(function(){
+			    showimg();//加载第一屏
+			    $(window).scroll(function(){
+			        showimg();//显示当前滚动位置一下两屏且没有被加载的图片
+			    });
+			});
+			function showimg(){
+			    var vtop=$(document).scrollTop();//滚动条滚动的距离
+			    var wheight=$(window).height();//窗口高度　
+			    $("img").each(function(){//遍历img
+			        var truesrc=$(this).attr("truesrc");//获取真实图片地址
+			        if(truesrc&&$(this).offset().top<=(wheight+vtop)){ //如果truesrc存在且有值的时候加载。
+			            $(this).attr("src",truesrc).removeAttr("truesrc");//赋值真实图片地址并移除truesrc属性防止重复加载。
+			        }
+			    });
+			}
+
+		</script>
+	</head>
+	<body>
+		<ul id="imgli">
+			<li><img src="img/yy_1.jpg" /></li>
+			<li><img src="img/yy_2.jpg" /></li>
+			<li><img src="img/yy_3.jpg" /></li>
+			<li><img src="img/yy_4.jpg" /></li>
+			<li><img src="img/yy_5.jpg" /></li>
+			
+		</ul>
+	</body>
+</html>
